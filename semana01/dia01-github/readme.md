@@ -9,5 +9,5 @@
 * git log --online --graph
 * git show 1431c9e
 * git remote add origin https://github.com/RSChiuDev/bootcamp-frontend-g14.git
-* git branch -M main sirve para renombrar la rama que antes era master
+* git branch -M main sirve para renombrar la rama que antes era mastergit add
 * git push -u origin main
