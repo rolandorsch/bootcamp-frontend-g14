@@ -88,7 +88,7 @@ box-shadow: 1px 1px 3px #ccc;
     display: flex; /*los acomoda uno al lado del otro y después ya los alineamos*/
     gap:7px;
     justify-content: center;
-    cursor: pointer;
+    
 }
 
 #img1{

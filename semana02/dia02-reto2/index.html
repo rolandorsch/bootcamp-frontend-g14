@@ -2,45 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./styles.css">
 
 </head>
 
 <body>
-    <main class="container">
-        <section class="photo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-            <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
-          </svg>
-          </section>
-        <section class="content">
-            <h1>Crea una Cuenta</h3>
-                <h5>Ingrese la siguiente información para registrarte.</h5>
-                <form>
-                    <div class="linea1">
-                        <input type="text" placeholder="Nombres" />
-                        <input type="text" placeholder="Apellidos" />
-                    </div>
-                    <input type="email" placeholder="Email: Ej. user@gmail.com" />
-                    <input type="tel" placeholder="Teléfono" />
-                    <input type="password" placeholder="Password" />
-                    <input type="password" placeholder="Confirmar password" />
-                    <input type="button" value="Registrarse" />
-                    
-                    <div class="pie1">
-                        <label >Ya tienes una cuenta? </label>
-                        <a href="#" class="link"> Accede desde aquí</a>
-                    </div>
-                    <br/>
-                </form>
-        </section>
-        <footer>
-            
-        </footer>
-    </main>
+  <main>
+    <!-- Sign-up form start -->
+    <form>
+      <section class="content">
+
+        <h1>Stay updated!</h1>
+        Join 60,000+ product managers receiving monthly updates on:
+
+        <ul>
+          <li>Product discovery and building what matters </li>
+          <li>Measuring to ensure updates are a success</li>
+          <li>And much more!</li>
+        </ul>
+
+
+        <label>
+          Email address
+          <input type="email" placeholder="email@company.com" required pattern=".+@globex\.com" size="30">
+        </label>
+
+
+        <button>Subscribe to monthly newsletter</button>
+
+      </section>
+    </form>
+
+
+    <section class="photo"></section>
+  </main>
 </body>
 
 </html>
