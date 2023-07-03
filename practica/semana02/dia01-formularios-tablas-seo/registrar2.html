@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <main class="container">
+        <img src="https://placehold.co/80.png?text={rs}" />
+        <section class="content">
+            <h1>Crea una Cuenta</h3>
+                <h5>Ingrese la siguiente información para registrarte.</h5>
+                <form>
+                    <div class="linea1">
+                        <label>Nombres
+                            <input type="text" placeholder="Nombres" />
+                        </label>
+                        <label>Apellidos
+                            <input type="text" placeholder="Apellidos" />
+                        </label>
+                    </div>
+
+                    <label>Edad
+                        <input type="number" placeholder="Edad" />
+                    </label>
+                    <label>Fecha de Nacimiento
+                        <input type="date" />
+                    </label>
+
+                    <label>Genero
+                        <select>
+                            <option value="" disabled selected>Seleccione tu genero</option>
+                            <option value="">Masculino</option>
+                            <option value="">Femenino</option>
+                        </select>
+                    </label>
+                    <input type="email" placeholder="Email: Ej. user@gmail.com" />
+                    <label>Dirección
+                        <input type="text" placeholder="Dirección" />
+                        <input type="text" placeholder="Dirección línea 2" />
+                    </label>
+                    <label>Teléfono
+                        <input type="tel" placeholder="(51) 999999999" />
+                    </label>
+                    <label>Código postal
+                        <input type="tel" placeholder="Ej: 14001" />
+                    </label>
+                    <label>Ciudad
+                        <input type="tel" placeholder="Ej: Chiclayo" />
+                    </label>
+                    <label>Subir firma
+                        <input type="file" name="archivosubir">
+                    </label>
+                    <label>
+                        <input type="checkbox"  />
+                        Acepto los términos , condiciones y políticas
+                    </label>
+                    <input type="button" value="Registrarse" />
+
+                    <div class="pie1">
+                        <label>Ya tienes una cuenta? </label>
+                        <a href="#" class="link"> Accede desde aquí</a>
+                    </div>
+                    <br />
+                </form>
+        </section>
+        <footer>
+
+        </footer>
+    </main>
+</body>
+
+</html>

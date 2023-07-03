@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body{
+    background-color: hsl(234, 29%, 20%);
+    font-size: 16px;
+    font-family: 'roboto',sans-serif;
+    height:100vh; /* le dice que el body ocupa el 100 x ciento de la pagina*/
+    display: flex;
+    justify-content: center;
+    align-items: center; /*alinea todos los items de l body al centro trabaj junto al justify-content: center; height:100vh*/
+}
+
+main{
+ width:800px;
+ height: 450px;
+ display: flex; /* divide los section en columnas*/
+ background-color: white;
+ border-radius: 15px 15px 15px 15px;
+}
+
+
+
+.content{
+    background-color:hsl(0, 0%, 100%);
+    /* tods para css es una caja y un caja se compone de margin, border y padding*/
+    width:410px;
+    height: 300px;
+    margin-top: 80px; 
+    margin-left: 30px;
+    border-radius: 0px 0px 0px 0px;
+    
+    
+    }
+
+.photo{
+    
+    background-image: url( assets/images/illustration-sign-up-desktop.svg);
+    width:281px;
+    height: 511px;
+    background-repeat: no-repeat;   
+    margin-left: 60px;
+    margin-top: 15px;
+    background-size:contain;
+
+}
+
+.content button{
+    /*font-family: inherit;*/
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
+    background-color:hsl(0, 2%, 10%);
+    color: white;
+    border:0;
+    width:90%;
+    padding: 14px;
+    border-radius: 7px;
+    margin-top: 20px;
+
+    display: flex; /*los acomoda uno al lado del otro y después ya los alineamos*/
+    gap:7px;
+    justify-content: center;
+    cursor: pointer;
+   
+    
+}
+
+.content button:hover{
+    background-color:hsl(4, 100%, 67%);
+}
+
+
+ul li{
+    list-style-image: url(assets/images/icon-list.svg);
+    margin-left: -10px;
+    padding-left: 10px;
+}
+
+
+
+form input{
+    width:88%; height: 40px;
+    
+    border-radius: 10px;
+    border-color: hsl(231, 7%, 60%);
+}

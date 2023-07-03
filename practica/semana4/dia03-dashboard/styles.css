@@ -1,0 +1,211 @@
+:root{
+    --bg-1:#13005A;
+    --bg-2:#00337C;
+    --bg-3:#1C82AD;
+    --bg-4:#f1f7f5;
+}
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    height: 100vh; /*indica utiliza el 100% de alto a utilizar de la pantalla visible en el navegador*/
+    width: 100vw;
+    display: grid;  
+    /*grid-template-columns: 300px 1fr ;/* 1fr es unidad de medida, toma 1 fracci{on de todo el espacio q tiene*/
+        grid-template-columns: var(--sidebarWidth, 10px) 1fr var(--sidebarWidth2, 10px);
+        grid-template-rows: 60px 1fr;
+
+    grid-template-areas: 
+    "side header side2"  
+    "side main  side2"  ;
+    transition: 300ms;
+
+}
+
+
+
+
+.sidebar{
+    background-color: var(--bg-2);
+    grid-area: side;
+    
+    
+  
+}
+
+
+.sidebar.sidebar--open{
+  background-color: var(--bg-2);
+  
+  }
+
+  
+.sidebar2.sidebar2--open{
+  
+  background-color: green;
+  
+  }
+
+.sidebar2{
+  background-color: green;
+  grid-area: side2;
+  position: fiexed;
+  
+  
+  
+}
+
+.main{
+    background-color: var(--bg-3);
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;/* 1fr es unidad de medida, toma 1 fracci{on de todo el espacio q tiene*/
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "c1 c2 c3"
+        "c4 c4 c5"
+        "c4 c4 c6";
+        gap:20px;
+        padding:24px;
+}
+
+
+.card{
+    background-color: var(--bg-4);
+    border-radius: 10px;
+    }
+    
+    .card.card:nth-child(1){
+        grid-area:c1;
+    }
+    
+    .card.card:nth-child(2){
+        grid-area:c2;
+    }
+    
+    
+    .card.card:nth-child(3){
+        grid-area:c3;
+    }
+    
+    
+    .card.card:nth-child(4){
+        grid-area:c4;
+    }
+    .card.card:nth-child(5){
+        grid-area:c5;
+    }
+
+    .card.card:nth-child(6){
+        grid-area:c6;
+    }
+    
+ 
+
+
+      
+      .header {
+        background-color: var(--bg-1);
+      
+        grid-area: header;
+      
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px;
+      }
+      
+      .header__button-menu,
+      .header__button-settings {
+        cursor: pointer;
+      }
+      
+      .header svg {
+        fill: #FFF;
+      }
+      
+    
+@media (max-width: 768px) {
+    .main {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 200px);
+      grid-template-areas: initial;
+    }
+    .card {
+      grid-area: initial !important;
+    }
+  }
+
+/*
+  .header2 {
+    
+  
+    margin-top: 50px;
+    grid-area: header;
+  
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 24px;
+  }
+*/
+/* 
+  
+.conf{
+  background-color: white;
+  box-shadow:inset 0 -3em 3em rgba(0,0,0,0.1),
+  0 0  0 2px rgb(255,255,255),
+  0.3em 0.3em 1em rgba(0,0,0,0.3);
+    position: fixed;
+  z-index: 100; /*Crea una capa nueva por encima, si tenemos una con valor 2 estará a una altura o por encima de una con 
+                valor 1*/
+   /*             border-radius: 5px;
+                width: 300px;
+                height: 150px; 
+                margin-top: 90px;
+                
+visibility: hidden;
+ 
+}*/
+
+/*
+body.sidebar2.sidebar2--open {
+  --sidebarWidth2: 100px;
+  
+  
+  }
+  */
+
+
+  body:has(.sidebar2--open) {
+    --sidebarWidth2:  200px;
+  }
+  body:has(.sidebar--open) {
+    --sidebarWidth:  100px;
+    
+  }
+
+
+/*
+.conf--open {
+  
+  visibility: visible;
+  transition: transform 1s;
+  
+  transform: translatey(10px);
+  
+  
+}*/
+
+@keyframes desplazamiento {
+  from{
+    height: 0px;
+  }
+  to {
+    height: 100px;
+  }
+  
+}
