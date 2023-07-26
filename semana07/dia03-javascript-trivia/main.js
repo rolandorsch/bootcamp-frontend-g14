@@ -52,6 +52,8 @@ function inicio() {
   radioButtons = document.querySelectorAll(".task__Radio");
   btn__next.disabled = true;
   btn__next.style = "background:white;color:gainsboro";
+  
+
   eventospintar();
 }
 
@@ -65,12 +67,10 @@ btn_inicio.addEventListener("click", function (event) {
 });
 
 btn__next.addEventListener("click", function (event) {
-  // console.log(event);
-  //alert(btn__next.disabled);
-  if (btn__next.disabled) {
-    alert("seleccion respuesta");
-  }
-  if (contadorPreguntas == 3) {
+  
+  if (contadorPreguntas == 3 && event.target.innerText=='Mostrar Resultados') {
+    
+    mostrarResultados()
     return;
   }
 
@@ -85,6 +85,13 @@ btn__next.addEventListener("click", function (event) {
   //console.log(radioButtons.length);
   btn__next.disabled = true;
   btn__next.style = "background:white;color:gainsboro";
+
+  
+  if (contadorPreguntas==3)
+  {
+    btn__next.innerHTML="Mostrar Resultados";
+  }
+
   eventospintar();
 });
 
@@ -110,6 +117,16 @@ function eventospintar() {
 
       let clicked = event.target;
 
+/*
+      if (contadorPreguntas == 3 && event.target.innerText=='Mostrar Resultados') {
+        btn__next.style =
+        "cursor:default; background:rgb(22 163 74); color:white";
+        btn__next.disabled = false;
+    
+        return;
+      }
+      
+*/
       /*alert(clicked.innerHTML);*/
       switch (clicked.name) {
         case "alternativas0": //pregunta1
@@ -167,8 +184,9 @@ function eventospintar() {
               rptaCorrectaButton();
               clicked.style =
                 "cursor:default; background:rgb(22 163 74); color:white";
-              //btn__next.disabled = false;
-              btn__next.style = "background:white";
+                btn__next.disabled = false;
+                btn__next.style =
+                "cursor:default; background:rgb(37 99 235); color:white";
               break;
             default:
               clicked.style =
@@ -176,56 +194,63 @@ function eventospintar() {
               contadorInCorrectas++;
               rptaInCorrectaButton();
               respuestasArray.push(respuesta);
-              //btn__next.disabled = false;
+              btn__next.disabled = false;
+              btn__next.style =
+              "cursor:default; background:rgb(37 99 235); color:white";
+         
               //btn__next.style="background:white";
               break;
           }
-          
-          let favDialog = document.getElementById("favDialog");
-
-          
-          let mensaje_resultado = document.getElementById("mensaje_resultado");
-          let mensaje_resultado_total = document.getElementById("mensaje_resultado_total");
-          let mensaje_resultado_puntaje = document.getElementById("mensaje_resultado_puntaje");
-          let mensaje_resultado_img = document.getElementById("mensaje_resultado_img");
-          let mensaje = document.getElementById("mensaje");
-
-          
-          
-          //console.log(contadorCorrectas);
-          //console.log(contadorInCorrectas);
-          if (contadorCorrectas>contadorInCorrectas){
-            mensaje_resultado.innerHTML='¡GANASTE!'
-            mensaje_resultado_total.innerHTML=`Respondiste ${contadorCorrectas} de 3`;
-            mensaje_resultado_puntaje.innerHTML='Y este es tu puntaje:'+ contadorCorrectas*10;
-            mensaje_resultado_img.innerHTML="&#128512";
-            mensaje.style="background:rgb(22, 16,3 74)";
-
-            
-          }else if(contadorCorrectas<contadorInCorrectas){
-            mensaje_resultado.innerHTML='¡PERDISTE!';
-            mensaje_resultado_total.innerHTML=`Respondiste ${contadorCorrectas} de 3`;
-            mensaje_resultado_puntaje.innerHTML='Y este es tu puntaje:'+ contadorCorrectas*10;
-            mensaje_resultado_img.innerHTML="&#128542";
-            mensaje.style="background:rgb(220, 38, 38 )";
-          }
-
-          
-          /*
-          respuestasArray.forEach(o =>  {
-            if (o.puntaje==10){}
-            console.log(o.pregunta, o.puntaje)
-          });         
-*/
-
-          favDialog.showModal();
-          break;
+        break;
+       
       }
     });
   }
 }
 
 inicio();
+
+function mostrarResultados(){
+  let favDialog = document.getElementById("favDialog");
+
+          
+  let mensaje_resultado = document.getElementById("mensaje_resultado");
+  let mensaje_resultado_total = document.getElementById("mensaje_resultado_total");
+  let mensaje_resultado_puntaje = document.getElementById("mensaje_resultado_puntaje");
+  let mensaje_resultado_img = document.getElementById("mensaje_resultado_img");
+  let mensaje = document.getElementById("mensaje");
+
+  
+  
+  //console.log(contadorCorrectas);
+  //console.log(contadorInCorrectas);
+  if (contadorCorrectas>contadorInCorrectas){
+    mensaje_resultado.innerHTML='¡GANASTE!'
+    mensaje_resultado_total.innerHTML=`Respondiste ${contadorCorrectas} de 3`;
+    mensaje_resultado_puntaje.innerHTML='Y este es tu puntaje:'+ contadorCorrectas*10;
+    mensaje_resultado_img.innerHTML="&#128512";
+    mensaje.style="background:rgb(22, 16,3 74)";
+
+    
+  }else if(contadorCorrectas<contadorInCorrectas){
+    mensaje_resultado.innerHTML='¡PERDISTE!';
+    mensaje_resultado_total.innerHTML=`Respondiste ${contadorCorrectas} de 3`;
+    mensaje_resultado_puntaje.innerHTML='Y este es tu puntaje:'+ contadorCorrectas*10;
+    mensaje_resultado_img.innerHTML="&#128542";
+    mensaje.style="background:rgb(220, 38, 38 )";
+  }
+
+  
+  /*
+  respuestasArray.forEach(o =>  {
+    if (o.puntaje==10){}
+    console.log(o.pregunta, o.puntaje)
+  });         
+*/
+
+  favDialog.showModal();
+}
+
 /*
 function modalResultado() {
    var cancelButton = document.getElementById("cancel");
