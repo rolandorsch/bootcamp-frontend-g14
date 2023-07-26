@@ -9,13 +9,13 @@ let contadorCorrectas = 0;
 let contadorInCorrectas = 0;
 
 let preguntas = [
-  "¿Cuál es el equipo peruano más goleado de la Copa Libertadores?",
-  "¿Cuantas maneras de aplicar CSS a nuestro sitio web existen?",
-  "¿Que palabra se usa para declarar una constante en javascript",
+  "1.¿Cuál es la instrucción usada para devolver un valor en una función de JavaScript?",
+  "2.¿Cuantas maneras de aplicar CSS a nuestro sitio web existen?",
+  "3.¿Que palabra se usa para declarar una constante en javascript",
 ];
 
 let respuestas = [
-  ["Cienciano", "Alianza Lima", "San Martin", "Melgar"],
+  ["send", "return", "value"],
   ["1", "3", "2", "0"],
   ["var", "let", "cons", "Ninguna de las anteriores"],
 ];
@@ -53,7 +53,7 @@ function inicio() {
   btn__next.disabled = true;
   btn__next.style = "background:white;color:gainsboro";
   
-
+  btn__next.innerText='Siguiente pregunta'
   eventospintar();
 }
 
@@ -131,7 +131,7 @@ function eventospintar() {
       switch (clicked.name) {
         case "alternativas0": //pregunta1
           switch (clicked.innerHTML) {
-            case "Alianza Lima":
+            case "return":
               respuesta.puntaje = 10;
               respuestasArray.push(respuesta);
               ++contadorCorrectas;
