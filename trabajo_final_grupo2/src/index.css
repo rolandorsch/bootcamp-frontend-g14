@@ -108,3 +108,40 @@ body {
     top: 100px;
   }
   }
+ /*  .clipping-container {
+    position: relative;
+    border: 1px solid #aaa;
+    margin-bottom: 12px;
+    padding: 12px;
+    width: 250px;
+    height: 80px;
+    overflow: hidden;
+  } */
+  /* 
+  .modal {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    background-color: white;
+    border: 2px solid rgb(240, 240, 240);
+    border-radius: 12px;
+    position:  absolute;
+    width: 250px;
+    top: 70px;
+    left: calc(50% - 125px);
+    bottom: 70px;
+  } */
+  /*
+  body .nf-field-element input:not([type=button]), body .nf-field-element select, body .nf-field-element textarea {
+    height: 54px;
+    padding: 0 20px;
+    border: solid 2px #c2d1d7;
+    font-size: 17px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}*/

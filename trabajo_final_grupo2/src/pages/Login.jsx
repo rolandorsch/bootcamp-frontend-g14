@@ -72,15 +72,15 @@ const Login = () => {
   return (
     <div className="flex flex-col md:flex-row h-screen items-center">
       <div className=" lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-        <div id="axis" class="eight">
+        <div id="axis" className="eight">
           <img
             id="img1"
-            class="object car largerx"
+            className="object car largerx"
             src="/src/assets/imagen_odo.png"
           />
           <img
             id="img2"
-            class="object car largerx"
+            className="object car largerx"
             src="/src/assets/dental-ore.png"
           />
         </div>
