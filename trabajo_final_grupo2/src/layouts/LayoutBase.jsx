@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { UserContext } from "../context/UserContext"
 import { useState } from "react";
 import RegistrarCita from "../pages//Registrarcita";
-import PortalExample from "../pages/PortalExample";
+
 
 /*
 export default function PortalExample() {
@@ -79,7 +79,7 @@ const LayoutBase = (props) => {
             {!user?.usuario  && (
               <>
                 <Link to="/login">Iniciar Sesión</Link>
-                <Link to="/registrarcita"><RegistrarCita/></Link>
+                <Link to="/registrarcita"><RegistrarCita Datos=''/></Link>
                 
                 
               </>

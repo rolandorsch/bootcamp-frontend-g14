@@ -14,7 +14,7 @@ import Character from "./pages/Character";
 import Registrarcita from "./pages/RegistrarCita";
 
 import { useState } from "react";
-import PortalExample from "./pages/PortalExample";
+
 
 function App() {
   const [activo, setActivo] = useState(false);
