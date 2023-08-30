@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { useNavigate } from "react-router-dom";
-
-export default function ModalContent({ onClose }) {
+let lblTitulo = "";
+let subTitulo = "";
+export default function ModalContent({ onClose, datos, recargarDatos }) {
+  /*const [cargardatos, setCargardatos] = useState(datos);*/
   const [form, setForm] = useState({
     nombre: "",
     edad: "0",
@@ -11,46 +12,68 @@ export default function ModalContent({ onClose }) {
     sintomas: "",
   });
 
-  /*const navigate = useNavigate();*/
+  console.log(datos);
+  /* Ingresa cada vez que da Datos tiene alún cambio*/
+  useEffect(() => {
+    if (Object.keys(datos).length > 0) {
+      setForm(datos);
+    }
+  }, [datos]);
+
+  if (Object.keys(datos).length > 0) {
+    /*si hat Datos en la variable Datos llena el formulario y asigna un titulo y subitulo al formulario. Esto para edición*/
+    lblTitulo = "Editar Cita";
+    subTitulo = "Editando Cita";
+  } else {
+    lblTitulo = "Registrar Cita";
+    subTitulo = "Nueva Cita";
+  }
 
   const handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-
     setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = async (event) => {
-    //alert("dasffff");
-    debugger
+    //debugger;
     event.preventDefault();
 
-    const url = "https://64e27946ab00373588190644.mockapi.io/api/v1/clientes";
-
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    };
-
-    const response = await fetch(url, options);
-
-    const data = await response.json();
-
-    console.log(data);
-
-    //setForm({ email: "", password: "" });
-
-    //navigate("/login");
-    onClose();
+    switch (lblTitulo) {
+      case "Editar Cita":
+        const url = `https://64e27946ab00373588190644.mockapi.io/api/v1/clientes/${form.id}`;
+        const options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        };
+        console.log(JSON.stringify(form));
+        const response = await fetch(url, options);
+        const data = await response.json();
+        //setCargardatos(1);
+        onClose();
+        recargarDatos(1);
+        break;
+      case "Registrar Cita":
+        const urlPost = `https://64e27946ab00373588190644.mockapi.io/api/v1/clientes`;
+        const optionsPost = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        };
+        const responsePost = await fetch(urlPost, optionsPost);
+        const dataPost = await responsePost.json();
+        //setCargardatos(1);
+        recargarDatos(1);
+        onClose();
+        break;
+    }
   };
 
-  const handleSaveAppointment = (e) => {
-    // e.preventDefault();
-    /// {console.log("aa",editReg)}
-  };
   return (
     <div className="modal">
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -59,7 +82,7 @@ export default function ModalContent({ onClose }) {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-              <h3 className="text-3xl font-semibold">Registrar Cita</h3>
+              <h3 className="text-3xl font-semibold">{lblTitulo}</h3>
               <button
                 className="p-1 ml-auto bg-transparent border-0 text-black opacity-100 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                 onClick={onClose}
@@ -72,7 +95,7 @@ export default function ModalContent({ onClose }) {
             {/*body*/}
 
             <section className="w-96 p-4">
-              <h2 className="text-2xl text-center mb-4">Nuevo Paciente</h2>
+              <h2 className="text-2xl text-center mb-4">{subTitulo}</h2>
 
               <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
                 <input
@@ -122,11 +145,11 @@ export default function ModalContent({ onClose }) {
                   type="submit"
                   className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
                 px-4 py-3 mt-6"
-                value="Guardar"
+                  value="Guardar"
+                  onClick={handleSubmit}
                 />
-                
-                
-{/* 
+
+                {/* 
                 <input
                   className="border p-2 bg-green-800 text-white rounded-md cursor-pointer"
                   type="submit"
