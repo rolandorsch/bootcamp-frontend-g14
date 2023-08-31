@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-import AppointmentsList from "./AppointmentsList";
+import TablaCabecera from "./TablaCabecera";
 import { fetchCitas } from "../../services/citas";
 import Paginacion from "../Paginacion";
+import Paginacion1 from "../Paginacion1";
 
-const Appointments = () => {
+const Tabla = () => {
   const [recargar, setRecargar] = useState(0);
   const [datos, setCitas] = useState([]);
   /***Paginacion***/
@@ -12,8 +13,8 @@ const Appointments = () => {
   const [datosPerPage, setdatosPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const lastIndex= currentPage*datosPerPage;
-  const firstIndex= lastIndex-datosPerPage;
+  const lastIndex = currentPage * datosPerPage;
+  const firstIndex = lastIndex - datosPerPage;
 
   //alert("appointm 1");
 
@@ -38,15 +39,25 @@ const Appointments = () => {
   return (
     <>
       {
+        <Paginacion1
+          datosPerPage={datosPerPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalDatos={totalDatos}
+          lastIndex={lastIndex}
+          firstIndex={firstIndex}
+        />
+      }
+    {/*   {
         <Paginacion
           datosPerPage={datosPerPage}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalDatos={totalDatos}
         />
-      }
+      } */}
       {
-        <AppointmentsList
+        <TablaCabecera
           datos={datos}
           onRemove={handleRemove}
           recargarDatos={recargarDatos}
@@ -58,4 +69,4 @@ const Appointments = () => {
   );
 };
 
-export default Appointments;
+export default Tabla;

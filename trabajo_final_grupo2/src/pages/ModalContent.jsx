@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 let lblTitulo = "";
 let subTitulo = "";
 export default function ModalContent({ onClose, datos, recargarDatos }) {
   /*const [cargardatos, setCargardatos] = useState(datos);*/
+  const MySwal = withReactContent(Swal);
   const [form, setForm] = useState({
     nombre: "",
     edad: "0",
@@ -12,7 +15,7 @@ export default function ModalContent({ onClose, datos, recargarDatos }) {
     sintomas: "",
   });
 
-  console.log(datos);
+  
   /* Ingresa cada vez que da Datos tiene alún cambio*/
   useEffect(() => {
     if (Object.keys(datos).length > 0) {
@@ -38,6 +41,22 @@ export default function ModalContent({ onClose, datos, recargarDatos }) {
   const handleSubmit = async (event) => {
     //debugger;
     event.preventDefault();
+
+    if (form.edad<=0){
+      MySwal.fire({
+        icon: "error",
+        title: "Edad tiene que ser mayor a 0!",
+      });
+      return;
+    }
+
+    if (form.nombre.length===0){
+      MySwal.fire({
+        icon: "error",
+        title: "Ingrese el nombre del paciente!!!",
+      });
+      return;
+    }
 
     switch (lblTitulo) {
       case "Editar Cita":

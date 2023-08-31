@@ -1,10 +1,10 @@
 // TODO: Necesitamos crear un componente para listar las citas. Uno llamado ApointmentItem y mejorar los estilos.
 import { useEffect, useState } from "react";
-import AppointmentsItems from "./AppointmentsItems";
+import TablaFilas from "./TablaFilas";
 import Registrarcita from "../../pages/Registrarcita";
 
 let valor = "";
-const AppointmentsList = ({ datos, onRemove,recargarDatos,lastIndex,firstIndex }) => {
+const TablaCabecera = ({ datos, onRemove,recargarDatos,lastIndex,firstIndex }) => {
   const [datalist, setlistpacientes] = useState(datos);
   const [search, setSearch] = useState("");
   //console.log("lastindexList",{lastIndex});
@@ -39,7 +39,8 @@ const AppointmentsList = ({ datos, onRemove,recargarDatos,lastIndex,firstIndex }
     <section>
       <h2 className="text-2xl text-center mb-4 text-gray-50">Listado de Pacientes</h2>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div className="pb-4 bg-white dark:bg-gray-900">
+        
+        <div className=" flex justify-between   pb-4 bg-white dark:bg-gray-900">
           <label htmlFor="table-search" className="sr-only">
             Search
           </label>
@@ -69,6 +70,9 @@ const AppointmentsList = ({ datos, onRemove,recargarDatos,lastIndex,firstIndex }
               onChange={handleSearch}
             />
           </div>
+          <div>
+          <Registrarcita datos={""} recargarDatos={recargarDatos} titulo="Nuevo" colordefondo={"bg-blue-800"}  borde={"border p-2"}/>
+          </div>
         </div>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-100 uppercase bg-green-600 dark:bg-gray-700 dark:text-gray-400">
@@ -86,14 +90,15 @@ const AppointmentsList = ({ datos, onRemove,recargarDatos,lastIndex,firstIndex }
                 </div>
               </th>
               <th scope="col" className="px-6 py-3">
+                Id
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Nombre
               </th>
               <th scope="col" className="px-6 py-3">
                 Edad
               </th>
-              <th scope="col" className="px-6 py-3">
-                Dueño
-              </th>
+           
               <th scope="col" className="px-6 py-3">
                 Fecha
               </th>
@@ -105,11 +110,11 @@ const AppointmentsList = ({ datos, onRemove,recargarDatos,lastIndex,firstIndex }
               </th>
               <th scope="col" className="px-6 py-3"></th>
               <th scope="col" className="px-6 py-3"></th>
-              <th scope="col" className="px-6 py-3"></th>
+              
             </tr>
           </thead>
 
-          <AppointmentsItems
+          <TablaFilas
             datos={datalist}
             onRemove={handleRemove}
             recargarDatos={recargarDatos}
@@ -122,4 +127,4 @@ const AppointmentsList = ({ datos, onRemove,recargarDatos,lastIndex,firstIndex }
   );
 };
 
-export default AppointmentsList;
+export default TablaCabecera;

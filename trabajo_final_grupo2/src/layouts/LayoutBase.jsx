@@ -79,7 +79,7 @@ const LayoutBase = (props) => {
             {!user?.usuario  && (
               <>
                 <Link to="/login">Iniciar Sesión</Link>
-                <Link to="/registrarcita"><RegistrarCita Datos=''/></Link>
+                <Link to="/registrarcita"><RegistrarCita datos={''}  titulo={'Registrar Cita'} colordefondo={'red'}/></Link>
                 
                 
               </>

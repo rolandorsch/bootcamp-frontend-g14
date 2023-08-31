@@ -1,11 +1,11 @@
 import React from "react";
-import Appointments from "../components/appointments/Appointments";
+import Tabla from "../components/Tabla/Tabla";
 
 function Contacto() {
   return (
     <>
     
-      <Appointments />
+      <Tabla />
     </>
   );
 }
