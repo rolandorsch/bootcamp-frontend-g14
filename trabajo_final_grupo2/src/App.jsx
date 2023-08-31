@@ -7,7 +7,7 @@ import Especialidades from "./pages/Especialidades";
 import Laboratorio from "./pages/Laboratorio";
 import Contacto from "./pages/Contacto";
 
-import Register from "./pages/Register";
+
 import Login from "./pages/Login";
 import LayoutBase from "./layouts/LayoutBase";
 import Character from "./pages/Character";
@@ -40,7 +40,7 @@ function App() {
     <>
       <UserProvider>
         <BrowserRouter>
-          <div className="bg-[url('././src/assets/slider-1.jpg')] w-full h-full bg-cover bg-center bg-no-repeat mb-8 md:h-[650px] ">
+     <div  className="bg-[url('././src/assets/slider-1.jpg')] w-full h-full bg-cover bg-center bg-no-repeat mb-8 md:h-[650px] "> 
             <LayoutBase>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -49,7 +49,7 @@ function App() {
                 <Route path="/laboratorio" element={<Laboratorio />} />
                 <Route path="/contacto" element={<Contacto />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
+                
                 <Route path="/registrarcita"  element={<Registrarcita/>} />
                 
                  
@@ -57,7 +57,7 @@ function App() {
                 <Route path="/character/:id" element={<Character />} />
               </Routes>
             </LayoutBase>
-          </div>
+         </div> 
        {/*    <div className="clipping-container">
             <PortalExample />
           </div> */}

@@ -65,11 +65,9 @@ const LayoutBase = (props) => {
           <nav className="flex gap-3 text-stone-100">
             {user?.usuario  && (
               <>
-                <Link to="/" id="Inicio">
-                  Inicio
-                </Link>
+               
                 <Link to="/conocenos">Conócenos</Link>
-                <Link to="/especialidades">Especialidades</Link>
+                
                 <Link to="/laboratorio">Laboratorio Dental</Link>
                 <Link to="/contacto" >Contacto</Link>
                 <button onClick={handleLogout}>Logout</button>
@@ -78,6 +76,10 @@ const LayoutBase = (props) => {
 
             {!user?.usuario  && (
               <>
+               <Link to="/" id="Inicio">
+                  Inicio
+                </Link>
+              <Link to="/especialidades">Especialidades</Link>
                 <Link to="/login">Iniciar Sesión</Link>
                 <Link to="/registrarcita"><RegistrarCita datos={''}  titulo={'Registrar Cita'} colordefondo={'red'}/></Link>
                 

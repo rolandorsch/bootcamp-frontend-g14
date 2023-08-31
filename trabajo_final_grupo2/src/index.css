@@ -64,7 +64,7 @@ d{
 			
 }*/
 body {
-  background: rgb(147, 147, 151);
+  background: #ffffff;
 }
 #img1 {
   width: 400px;
@@ -107,6 +107,26 @@ body {
     left: 500px;
     top: 100px;
   }
+  }
+
+  #fondo{
+    clip-path: polygon(0% 0%,100% 0%,100% 88%,49% 92%,0% 89%);
+  }
+
+  .valores_top {
+    height: 110px;
+    padding: 0;
+    background-color: #f6fafd;
+    border-bottom: solid 5px #fff;
+    text-align: center;
+    -webkit-border-radius: 53px;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius: 53px;
+    -moz-border-radius-topright: 0;
+    border-radius: 53px;
+    border-top-right-radius: 0;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,19%);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,19%);
   }
  /*  .clipping-container {
     position: relative;

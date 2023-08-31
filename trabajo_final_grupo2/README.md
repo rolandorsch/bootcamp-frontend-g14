@@ -18,3 +18,7 @@ https://larainfo.com/
 
 Ejemplos de Tablas:
 https://www.tailwindtoolbox.com/components/responsive-table
+
+Dar forma a imagenes:
+https://bennettfeely.com/clippy/
+https://css-tricks.com/almanac/properties/c/clip-path/
