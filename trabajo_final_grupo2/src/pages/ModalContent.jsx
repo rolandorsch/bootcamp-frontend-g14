@@ -87,7 +87,7 @@ export default function ModalContent({ onClose, datos, recargarDatos }) {
         const responsePost = await fetch(urlPost, optionsPost);
         const dataPost = await responsePost.json();
         //setCargardatos(1);
-        recargarDatos(1);
+        //recargarDatos(1);
         onClose();
         break;
     }

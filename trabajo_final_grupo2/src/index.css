@@ -7,6 +7,7 @@ a {
   font-weight: bold;
   color: #ffffff;
   margin: 0px 15px;
+  
 }
 /*
  a:after{
@@ -116,6 +117,8 @@ body {
   .valores_top {
     height: 110px;
     padding: 0;
+    position: relative;
+    margin-top: -108px;
     background-color: #f6fafd;
     border-bottom: solid 5px #fff;
     text-align: center;
@@ -127,7 +130,11 @@ body {
     border-top-right-radius: 0;
     -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,19%);
     box-shadow: 0 5px 15px 0 rgba(0,0,0,19%);
+    margin-left: 50px;
+    margin-right: 50px;
   }
+
+
  /*  .clipping-container {
     position: relative;
     border: 1px solid #aaa;

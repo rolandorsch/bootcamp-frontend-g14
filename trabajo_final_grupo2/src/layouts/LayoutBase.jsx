@@ -61,15 +61,15 @@ const LayoutBase = (props) => {
     <>
       <header className="bg-indigo-700 py-4 px-6">
         <div className="container mx-auto flex justify-between">
-          <h1 className="font-bold text-stone-100">Oré</h1>
+          <h1 className="font-bold text-stone-100">Odontologia</h1>
           <nav className="flex gap-3 text-stone-100">
             {user?.usuario  && (
               <>
                
-                <Link to="/conocenos">Conócenos</Link>
+                <Link to="/conocenos">Usuarios</Link>
                 
-                <Link to="/laboratorio">Laboratorio Dental</Link>
-                <Link to="/contacto" >Contacto</Link>
+                <Link to="/laboratorio">Clientes</Link>
+                <Link to="/contacto" >Citas</Link>
                 <button onClick={handleLogout}>Logout</button>
               </>
             )}
@@ -81,7 +81,7 @@ const LayoutBase = (props) => {
                 </Link>
               <Link to="/especialidades">Especialidades</Link>
                 <Link to="/login">Iniciar Sesión</Link>
-                <Link to="/registrarcita"><RegistrarCita datos={''}  titulo={'Registrar Cita'} colordefondo={'red'}/></Link>
+                <Link to="/registrarcita"><RegistrarCita datos={''}  titulo={'Registrar Cita'} colordefondo={'red'} recargarDatos={''}/></Link>
                 
                 
               </>
